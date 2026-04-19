@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Admin Login</h1>
+
+<div class="form-card">
+  <p style="margin-bottom:1.2rem; color:#555; font-size:0.95rem;">
+    Login to create events and access the admin panel.
+    <br><br>
+    <strong>Demo credentials:</strong> <code>admin</code> / <code>password123</code>
+  </p>
+
+  <form method="POST" action="/login">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">🔐 Login</button>
+    &nbsp;
+    <a href="/" class="btn btn-outline">Cancel</a>
+  </form>
+</div>
+
+{% endblock %}

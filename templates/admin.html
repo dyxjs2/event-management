@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Admin Dashboard</h1>
+
+<!-- Summary Stats -->
+<div style="display:flex; gap:1rem; margin-bottom:1.8rem; flex-wrap:wrap;">
+  <div class="card" style="flex:1; min-width:160px; border-left:4px solid #e74c3c; text-align:center;">
+    <div style="font-size:2rem; font-weight:700; color:#e74c3c;">{{ total_events }}</div>
+    <div style="color:#888; font-size:0.88rem;">Total Events</div>
+  </div>
+  <div class="card" style="flex:1; min-width:160px; border-left:4px solid #27ae60; text-align:center;">
+    <div style="font-size:2rem; font-weight:700; color:#27ae60;">{{ total_registrations }}</div>
+    <div style="color:#888; font-size:0.88rem;">Total Registrations</div>
+  </div>
+</div>
+
+<!-- Events Table -->
+{% if events %}
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Event Name</th>
+      <th>Date</th>
+      <th>Registered Users</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for event in events %}
+    <tr>
+      <td><span class="badge badge-blue">{{ event.id }}</span></td>
+      <td><strong>{{ event.name }}</strong></td>
+      <td>{{ event.date }}</td>
+      <td>
+        {% if event.registrations %}
+          {{ event.registrations | join(", ") }}
+        {% else %}
+          <em style="color:#bbb;">No registrations</em>
+        {% endif %}
+      </td>
+      <td>
+        <span class="badge badge-red">{{ event.registrations | length }}</span>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <div class="empty">
+    <span>📋</span>
+    No events to display.
+    <br><br>
+    <a href="/create" class="btn btn-primary">Create an Event</a>
+  </div>
+{% endif %}
+
+{% endblock %}

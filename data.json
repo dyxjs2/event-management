@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Tech Fest 2025",
+    "date": "2025-08-15",
+    "description": "Annual technology festival with workshops and talks.",
+    "registrations": [
+      "Alice",
+      "Bob",
+      "Vimarsh"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Art & Culture Night",
+    "date": "2025-09-03",
+    "description": "An evening celebrating local art and music.",
+    "registrations": [
+      "Charlie"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Startup Pitch Day",
+    "date": "2025-10-20",
+    "description": "Budding entrepreneurs pitch their ideas to investors.",
+    "registrations": []
+  }
+]
